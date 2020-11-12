@@ -22,7 +22,7 @@ pip install -r requirements.txt
 
 
 ### Data Preprocessing
-The extracted data of the total buildings, [osmfeatures-test25.xls](https://drive.google.com/file/d/1lVG3zhWKvR1SVVN3QgLGAyxmc0c97QXJ/view?usp=sharing)，should be put under the [Data](Data/)  folder. The raw data is then processed (missing data issue) and divided into five groups (five fold cross validation). The building index of each group is saved in [test_list.xls](Data/1/test_list.xls) , which is put under each group folder.
+The extracted data of the total buildings, [osmfeatures-test25.xls](https://drive.google.com/file/d/1lVG3zhWKvR1SVVN3QgLGAyxmc0c97QXJ/view?usp=sharing)，should be put under the [Data](Data/)  folder. The raw data is then processed (missing data issue) and divided into five groups (five folder cross validation). The building index of each group is saved in [test_list.xls](Data/1/test_list.xls) , which is put under each group folder.
 
 You can run the script as follows:
 
