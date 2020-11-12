@@ -19,9 +19,6 @@ pip install -r requirements.txt
 
 ## Usage
 
-### Data Preparation
-[osmfeatures-test25.xls](https://drive.google.com/file/d/1lVG3zhWKvR1SVVN3QgLGAyxmc0c97QXJ/view?usp=sharing) is the raw data extracted from OSM, which should be put under the data folder. It contains the samples of 320 builidings. 
-The 320 buildings are divided into five groups, which each contain 64 buildings. 
 
 
 ### Data Preprocessing
@@ -45,16 +42,7 @@ The directory will be created by the script.
 Existing result plots will be overwritten.
 
 
-### Astronaut Data
 
-The data set has been generated from the following SPARQL query [[1]] (retrieval date: 2018-10-25).
-
-You can replace the data set as follows:
-- Run the SPARQL query
-- Download the resulting data formatted as JSON
-- Replace the file `data/astronauts.json`
-
-[1]: https://query.wikidata.org/#%23Birthplaces%20of%20astronauts%0ASELECT%20DISTINCT%20%3Fastronaut%20%3FastronautLabel%20%3Fbirthdate%20%3FbirthplaceLabel%20%3Fsex_or_genderLabel%20%3Ftime_in_space%20%3Fdate_of_death%20WHERE%20%7B%0A%20%20%3Fastronaut%20%3Fx1%20wd%3AQ11631.%0A%20%20%3Fastronaut%20wdt%3AP569%20%3Fbirthdate.%0A%20%20%3Fastronaut%20wdt%3AP19%20%3Fbirthplace.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fastronaut%20wdt%3AP21%20%3Fsex_or_gender.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fastronaut%20wdt%3AP2873%20%3Ftime_in_space.%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fastronaut%20wdt%3AP570%20%3Fdate_of_death.%20%7D%0A%7D%0AORDER%20BY%20DESC%28%3Ftime_in_space%29
 
 
 ## Citation
@@ -64,13 +52,6 @@ please cite the specific version that you used using the citation metadata on Ze
 
 You can find an overview about the different versions in the [changelog](CHANGELOG.md).
 
-## Contributors
-
-Here you find the main contributors to the material:
-
-- Martin Stoffers
-- Tobias Schlauch
-- Katrin Leinweber
 
 ## License
 
