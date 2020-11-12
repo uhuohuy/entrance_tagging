@@ -1,3 +1,4 @@
+## this code is from https://github.com/dialnd/imbalanced-algorithms/blob/master/smote.py
 from collections import Counter
 
 import numpy as np
