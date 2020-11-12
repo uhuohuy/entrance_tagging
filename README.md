@@ -1,43 +1,56 @@
 
 # Entrance Detection 
-This project is to detect the main entrance of publich buildings based only on the available geospatial data on OpenStreetMap.
+This project is to detect the main entrance of publich buildings based only on the available geospatial data on OpenStreetMap (OSM).
 
 
 ## Install
 
-The script requires Python >= 3.6.1 and uses the libraries [pandas](https://pandas.pydata.org/) (*BSD 3-Clause License*) as well as [matplotlib](https://matplotlib.org/) (*Matplotlib License*).
+The script requires Python >= 3.6.1 and uses maiunly the libraries [imblearn](https://imbalanced-learn.readthedocs.io/en/stable/index.html) and [sklearn](https://scikit-learn.org/stable/).
 
-> The script has been successfully tested on Windows 10 with Python 3.6.10.
+> The scripts run successfully on windows 8, ubuntu 16.4, and ubuntu 18.4 with Python 3.6.2.
 
 Please clone this repository and install the [required dependencies](requirements.txt) as follows:
 
 ```bash
 git clone ...
-cd astronaut-analysis
+cd entrance_tagging
 pip install -r requirements.txt
 ```
 
 ## Usage
 
+### Data Preparation
+[osmfeatures-test25.xls]( data/osmfeatures-test25.xls) is the raw data set extracted from OSM, which should be put under the Data floder. However it is too large that cannot be uploaded here. Thus, it is shared through google drive. (https://drive.google.com/file/d/1lVG3zhWKvR1SVVN3QgLGAyxmc0c97QXJ/view?usp=sharing) It contains the samples of 320 builidings extracted from OSM. For the samples in each building, the starting row is the 'head' (index position 1) row that provides the  latitude (index position 3)  and longitude (index position 4) coordinates of the main entrance of current building and the sample index (index position 2) of th true entrance. The following rows represent the samples in the building, with each row representing the feature vector of a sample. In each row, the first coloum denotes the total number of samples in the building, the second column denotes the linear distance from current sample to the next samples. The thrid and fourth column denote the X-Y coordiante of current sample.
+
+test_list.xls: In  each test group, there is a file, named'test_list.xls', which contains the index of test buildings in each group. 
+
+
+### Data Preprocessing
+First, the extracted data of the total buildings, which is saved in [test_list.xls]( data/test_list.xls)， is divided into five test groups (five fold cross validation). During this procedure, the missing data issue will also be handled.
+
 You can run the script as follows:
 
 ```bash
-python astronaut-analysis.py
+python extraction.py
+```
+
+### Trainging and Predicting
+Then, we will conduct the training and predicting tasks based on the grouped training and test data set.
+You can run the script as follows:
+
+```bash
+python training_tagging.py
 ```
 
 The script processes the [astronauts data set]( data/astronauts.json) and stores the plots in the directory `results`.
 The directory will be created by the script.
 Existing result plots will be overwritten.
 
-OpenStreetMap based Main Entrance Tagging by Using Binary Imbalanced Learning
 
-'osmfeatures-test25.xls' is the raw data set extracted from OSM, which should be put under the Data floder. However it is too large that cannot be uploaded here. Thus, it is shared through google drive. (https://drive.google.com/file/d/1lVG3zhWKvR1SVVN3QgLGAyxmc0c97QXJ/view?usp=sharing) It contains the samples of 320 builidings extracted from OSM. For the samples in each building, the starting row is the 'head' (index position 1) row that provides the  latitude (index position 3)  and longitude (index position 4) coordinates of the main entrance of current building and the sample index (index position 2) of th true entrance. The following rows represent the samples in the building, with each row representing the feature vector of a sample. In each row, the first coloum denotes the total number of samples in the building, the second column denotes the linear distance from current sample to the next samples. The thrid and fourth column denote the X-Y coordiante of current sample.
-
-test_list.xls: In  each test group, there is a file, named'test_list.xls', which contains the index of test buildings in each group. 
 
 extraction.py: the code used to process 'osmfeatures-test25.xls'. It divides the total buildings into five test groups (five fold cross validation) based on file 'test_list.xls', and deal with the missing data issue.
 
-training_tagging.py: Conduct the training and tagging procedure based on the grouped training and test data set.
+training_tagging.py: 
 
 smote.py: SmoteBoost classifer, originally from (https://github.com/dialnd/imbalanced-algorithms/blob/master/smote.py)
 
