@@ -38,10 +38,6 @@ You can run the script as follows:
 python training_tagging.py
 ```
 
-The directory will be created by the script.
-Existing result plots will be overwritten.
-
-
 
 
 
