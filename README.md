@@ -22,7 +22,7 @@ pip install -r requirements.txt
 
 
 ### Data Preprocessing
-The extracted data of the total buildings, which is saved in [osmfeatures-test25.xls](https://drive.google.com/file/d/1lVG3zhWKvR1SVVN3QgLGAyxmc0c97QXJ/view?usp=sharing)， is divided into five groups (five fold cross validation). The building index of each group is saved in [test_list.xls] under each group folder. During this procedure, the missing data issue will also be handled.
+The extracted data of the total buildings, [osmfeatures-test25.xls](https://drive.google.com/file/d/1lVG3zhWKvR1SVVN3QgLGAyxmc0c97QXJ/view?usp=sharing)，should be put under the Data folder. The raw data is then processed (missing data issue) and divided into five groups (five fold cross validation). The building index of each group is saved in [test_list.xls] under each group folder.
 
 You can run the script as follows:
 
@@ -43,12 +43,8 @@ python training_tagging.py
 
 ## Citation
 
-If you use this work in a research publication,
-please cite the specific version that you used using the citation metadata on Zenodo [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.ZENODO-DOI.svg)](https://doi.org/10.5281/zenodo.ZENODO-DOI).
-
-You can find an overview about the different versions in the [changelog](CHANGELOG.md).
-
+missing now
 
 ## License
 
-Please see the file [LICENSE.md](LICENSE.md) for further information about how the content is licensed.
+missing now
